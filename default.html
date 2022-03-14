@@ -1,25 +1,48 @@
-<script type="text/javascript">
-timeend= new Date();
-// IE и FF по разному отрабатывают getYear()
-timeend= new Date(timeend.getYear()>1900?(timeend.getYear()+1):(timeend.getYear()+1901),0,1);
-// для задания обратного отсчета до определенной даты укажите дату в формате:
-// timeend= new Date(ГОД, МЕСЯЦ-1, ДЕНЬ);
-// Для задания даты с точностью до времени укажите дату в формате:
-// timeend= new Date(ГОД, МЕСЯЦ-1, ДЕНЬ, ЧАСЫ-1, МИНУТЫ);
-function time() {
-	today = new Date();
-	today = Math.floor((timeend-today)/1000);
-	tsec=today%60; today=Math.floor(today/60); if(tsec<10)tsec='0'+tsec;
-	tmin=today%60; today=Math.floor(today/60); if(tmin<10)tmin='0'+tmin;
-	thour=today%24; today=Math.floor(today/24);
-	timestr=today +" дней "+ thour+" часов "+tmin+" минут "+tsec+" секунд";
-	document.getElementById('t').innerHTML=timestr;
-	window.setTimeout("time()",1000);
-}
-</script>
-<body onload="time()">
-<font color="green">
-    <h1>Hello World! Friends!</h1>
-    <h1>Обратный отсчет времени</h1>
-    <p>До нового года осталось <span id="t" style="font-size:20px"></span></p>
-</font>
+<div class="wrapper">
+  <div class="container text-center">
+    <div class="col-md-12">
+      <h1 id="header" class="">New Year Countdown</h1>
+    </div>
+    <div class="col-md-3 col-xs-6">
+      <div class="clock">
+        <div class="well top-pane">
+          <div id="days" class="num">00</div>
+        </div>
+        <div class="well bottom-pane">
+          <div id="days-text" class="text">Days</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-6">
+      <div class="clock">
+        <div class="well top-pane">
+          <div id="hours" class="num">00</div>
+        </div>
+        <div class="well bottom-pane">
+          <div id="hours-text" class="text">Hours</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-6">
+      <div class="clock">
+        <div class="well top-pane">
+          <div id="mins" class="num">00</div>
+        </div>
+        <div class="well bottom-pane">
+          <div id="mins-text" class="text">Minutes</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-6">
+      <div class="clock">
+        <div class="well top-pane">
+          <div id="secs" class="num">00</div>
+        </div>
+        <div class="well bottom-pane">
+          <div id="secs-text" class="text">Seconds</div>
+        </div>
+      </div>
+    </div>
+    <div id="info" class="small"></div>
+  </div>
+</div>
